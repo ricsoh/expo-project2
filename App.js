@@ -21,9 +21,23 @@ export default function App() {
     setCount(0);
   }
 
+  function renderEncourageingText() {
+    if (count>=10 && count <20) {
+      return "You reached 10, Keep Going!";
+    }else if (count>=20 && count <30) {
+      return "You reached 20, Keep Going!";
+    }else if (count>=30) {
+      return "You reached 30, Keep Going!";
+    }else{
+      return "Start pressing!";
+    }
+  }
+
   return (
     <View style={styles.container}>
       <Text style={styles.text}>{count}</Text>
+      <Text style={styles.textEncourageing}> {renderEncourageingText()} </Text>
+      <Text></Text>
       <TouchableOpacity onPress={increment} style={styles.button}><Text style={styles.buttonText}>Increment</Text></TouchableOpacity>
       <Text></Text>
       <TouchableOpacity onPress={decrement} style={styles.button}><Text style={styles.buttonText}>Decrement</Text></TouchableOpacity>
@@ -44,6 +58,11 @@ const styles = StyleSheet.create({
 
   text: {
     fontSize: 100,
+  },
+
+  textEncourageing: {
+    fontSize: 20,
+    color: 'red',
   },
 
   button: {
