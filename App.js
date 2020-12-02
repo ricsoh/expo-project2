@@ -5,39 +5,52 @@ import { StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback, View } fr
 export default function App() {
   const [count, setCount] = useState(0);
   const [previousCount, setPreviousCount] = useState(0);
-
+  var btnPressed = 0;
+  
   function increment() {
     setPreviousCount(count);
     setCount(count + 1);
+    btnPressed = 1;
   }
 
   function decrement() {
-    if (count >= 2) {
+    if(count >= 1) {
       setPreviousCount(count);
-      setCount(count - 2);
-    } else {
-      setPreviousCount(count);
-      setCount(0);
+      setCount(count - 1);
+      }else {
+        setPreviousCount(0);
+        setCount(0);
+      }
+      btnPressed = 1;
     }
-  }
 
   function reset() {
     setCount(0);
     setPreviousCount(0);
-    return "Start clicking!";
+    btnPressed = 1;
+    renderEncourageingText();
+  }
+
+  function screenTouch() {
+    if (btnPressed == 0) {
+      setPreviousCount(count);
+      setCount(count + 1);
+      }else {
+        btnPressed = 0;
+    } 
   }
 
   function renderEncourageingText() {
     if (previousCount > count) {
-      return "Decrement clicked!";
+      return "Hey! Wrong way dude!";
     }
 
     if (count>=10 && count <20) {
-      return "You reached 10, Keep Going!";
+      return "Great Job! Keep going above 10!";
     }else if (count>=20 && count <30) {
-      return "You reached 20, Keep Going!";
+      return "Great Job! Keep going above 20!";
     }else if (count>=30) {
-      return "You reached 30, Keep Going!";
+      return "Great Job! Keep going above 30!";
     }else if (count == 0) {
       return "Start clicking!";
     }else{
@@ -45,12 +58,8 @@ export default function App() {
     }
   }
 
-  function screenTouch() {
-    increment();
-  }
-
   return (
-    <View style={styles.container} onTouchStart={() => screenTouch()}>
+    <View style={styles.container} onTouchEnd={() => screenTouch()}>
       <Text style={styles.text}>{count}</Text>
       <Text style={styles.textEncourageing}> {renderEncourageingText()} </Text>
       <Text></Text>
@@ -82,13 +91,15 @@ const styles = StyleSheet.create({
   },
 
   button: {
-    backgroundColor: 'lightblue',
+    backgroundColor: 'lightgray',
     padding: 10,
     borderRadius: 15,
+    borderWidth: 5,
+    borderColor: 'gray',
   },
   
   buttonText: {
     fontSize: 20,
-    color: 'blue',
+    color: 'black',
   }, 
 });
