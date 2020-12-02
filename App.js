@@ -68,6 +68,8 @@ export default function App() {
       <TouchableOpacity onPress={decrement} style={styles.button}><Text style={styles.buttonText}>Decrement</Text></TouchableOpacity>
       <Text></Text>
       <TouchableOpacity onPress={reset} style={styles.button}><Text style={styles.buttonText}>Reset</Text></TouchableOpacity>
+      <Text></Text>
+      <Text style={styles.textInstruction}>You may click anywhere on the screen to increase the counter!</Text>
       <StatusBar style="auto" />
     </View>
   );
@@ -83,11 +85,17 @@ const styles = StyleSheet.create({
 
   text: {
     fontSize: 200,
+    fontWeight: 'bold',
   },
 
   textEncourageing: {
     fontSize: 20,
+    fontWeight: 'bold',
     color: 'red',
+  },
+
+  textInstruction: {
+    fontSize: 10,
   },
 
   button: {
@@ -96,10 +104,12 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     borderWidth: 5,
     borderColor: 'gray',
+    width: 160,
   },
   
   buttonText: {
     fontSize: 20,
+    textAlign: 'center',
     color: 'black',
   }, 
 });
