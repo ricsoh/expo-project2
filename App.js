@@ -62,13 +62,9 @@ export default function App() {
     <View style={styles.container} onTouchEnd={() => screenTouch()}>
       <Text style={styles.text}>{count}</Text>
       <Text style={styles.textEncourageing}> {renderEncourageingText()} </Text>
-      <Text></Text>
       <TouchableOpacity style={styles.button}><Text style={styles.buttonText}>Increment</Text></TouchableOpacity>
-      <Text></Text>
       <TouchableOpacity onPress={decrement} style={styles.button}><Text style={styles.buttonText}>Decrement</Text></TouchableOpacity>
-      <Text></Text>
       <TouchableOpacity onPress={reset} style={styles.button}><Text style={styles.buttonText}>Reset</Text></TouchableOpacity>
-      <Text></Text>
       <Text style={styles.textInstruction}>You may click anywhere on the screen to increase the counter!</Text>
       <StatusBar style="auto" />
     </View>
@@ -96,15 +92,17 @@ const styles = StyleSheet.create({
 
   textInstruction: {
     fontSize: 10,
+    marginTop: 20,
   },
 
   button: {
     backgroundColor: 'lightgray',
     padding: 10,
-    borderRadius: 15,
+    borderRadius: 20,
     borderWidth: 5,
     borderColor: 'gray',
     width: 160,
+    marginTop: 20,
   },
   
   buttonText: {
