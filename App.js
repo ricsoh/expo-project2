@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, TouchableHighlight, View } from 'react-native';
+import CounterText from './components/CounterText';
 
 export default function App() {
   const [count, setCount] = useState(0);
@@ -60,7 +61,9 @@ export default function App() {
 
   return (
     <View style={styles.container} onTouchEnd={() => screenTouch()}>
-      <Text style={styles.text}>{count}</Text>
+      <CounterText fontSize={30} color='lightgray'> {count} </CounterText>
+      <CounterText fontSize={60} color='gray'> {count} </CounterText>
+      <Text style={styles.text}> {count} </Text>
       <Text style={styles.textEncourageing}> {renderEncourageingText()} </Text>
       <TouchableOpacity style={styles.button}><Text style={styles.buttonText}>Increment</Text></TouchableOpacity>
       <TouchableOpacity onPress={decrement} style={styles.button}><Text style={styles.buttonText}>Decrement</Text></TouchableOpacity>
@@ -80,7 +83,7 @@ const styles = StyleSheet.create({
   },
 
   text: {
-    fontSize: 200,
+    fontSize: 150,
     fontWeight: 'bold',
   },
 
