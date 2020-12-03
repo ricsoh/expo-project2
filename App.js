@@ -61,9 +61,9 @@ export default function App() {
 
   return (
     <View style={styles.container} onTouchEnd={() => screenTouch()}>
-      <CounterText fontSize={30} color='lightgray'> {count} </CounterText>
-      <CounterText fontSize={60} color='gray'> {count} </CounterText>
-      <Text style={styles.text}> {count} </Text>
+      <CounterText fontSize={30} marginBottom={30} color='lightgray'> {count} </CounterText>
+      <CounterText fontSize={60} marginBottom={20} color='gray'> {count} </CounterText>
+      <CounterText fontSize={120} color='black'> {count} </CounterText>
       <Text style={styles.textEncourageing}> {renderEncourageingText()} </Text>
       <TouchableOpacity style={styles.button}><Text style={styles.buttonText}>Increment</Text></TouchableOpacity>
       <TouchableOpacity onPress={decrement} style={styles.button}><Text style={styles.buttonText}>Decrement</Text></TouchableOpacity>
